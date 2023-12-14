@@ -58,16 +58,16 @@ fi
 # Since we are having too many options for mirror management,
 # then here is yet another mirror related option.
 # Respecting user's override in case a mirror is unreachable.
-case $REGIONAL_MIRROR in
-	china)
-		[[ -z $USE_MAINLINE_GOOGLE_MIRROR ]] && [[ -z $MAINLINE_MIRROR ]] && MAINLINE_MIRROR=tuna
-		[[ -z $USE_GITHUB_UBOOT_MIRROR ]] && [[ -z $UBOOT_MIRROR ]] && UBOOT_MIRROR=gitee
-		[[ -z $GITHUB_MIRROR ]] && GITHUB_MIRROR=gitclone
-		[[ -z $DOWNLOAD_MIRROR ]] && DOWNLOAD_MIRROR=china
-		;;
-	*)
-		;;
-esac
+# case $REGIONAL_MIRROR in
+# 	china)
+# 		[[ -z $USE_MAINLINE_GOOGLE_MIRROR ]] && [[ -z $MAINLINE_MIRROR ]] && MAINLINE_MIRROR=tuna
+# 		[[ -z $USE_GITHUB_UBOOT_MIRROR ]] && [[ -z $UBOOT_MIRROR ]] && UBOOT_MIRROR=gitee
+# 		[[ -z $GITHUB_MIRROR ]] && GITHUB_MIRROR=gitclone
+# 		[[ -z $DOWNLOAD_MIRROR ]] && DOWNLOAD_MIRROR=china
+# 		;;
+# 	*)
+# 		;;
+# esac
 
 # used by multiple sources - reduce code duplication
 [[ $USE_MAINLINE_GOOGLE_MIRROR == yes ]] && MAINLINE_MIRROR=google
@@ -579,29 +579,29 @@ DEBIAN_SECURTY='security.debian.org/'
 UBUNTU_MIRROR='ports.ubuntu.com/'
 RASPI_MIRROR='archive.raspberrypi.org/debian/'
 
-if [[ $DOWNLOAD_MIRROR == "china" ]] ; then
+# if [[ $DOWNLOAD_MIRROR == "china" ]] ; then
 
-	if [[ ${CHINA_DOWNLOAD_MIRROR} == tsinghua ]]; then
-		DEBIAN_MIRROR='mirrors.tuna.tsinghua.edu.cn/debian'
-		DEBIAN_SECURTY='mirrors.tuna.tsinghua.edu.cn/debian-security'
-		UBUNTU_MIRROR='mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/'
-	fi
+# 	if [[ ${CHINA_DOWNLOAD_MIRROR} == tsinghua ]]; then
+# 		DEBIAN_MIRROR='mirrors.tuna.tsinghua.edu.cn/debian'
+# 		DEBIAN_SECURTY='mirrors.tuna.tsinghua.edu.cn/debian-security'
+# 		UBUNTU_MIRROR='mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/'
+# 	fi
 
-	if [[ ${CHINA_DOWNLOAD_MIRROR} == huawei ]]; then
-		DEBIAN_MIRROR='repo.huaweicloud.com/debian'
-		DEBIAN_SECURTY='repo.huaweicloud.com/debian-security'
-		UBUNTU_MIRROR='repo.huaweicloud.com/ubuntu-ports/'
-	fi
+# 	if [[ ${CHINA_DOWNLOAD_MIRROR} == huawei ]]; then
+# 		DEBIAN_MIRROR='repo.huaweicloud.com/debian'
+# 		DEBIAN_SECURTY='repo.huaweicloud.com/debian-security'
+# 		UBUNTU_MIRROR='repo.huaweicloud.com/ubuntu-ports/'
+# 	fi
 
-	RASPI_MIRROR='mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/'
+# 	RASPI_MIRROR='mirrors.ustc.edu.cn/archive.raspberrypi.org/debian/'
 
-fi
+# fi
 
-if [[ $DOWNLOAD_MIRROR == "bfsu" ]] ; then
-	DEBIAN_MIRROR='mirrors.bfsu.edu.cn/debian'
-	DEBIAN_SECURTY='mirrors.bfsu.edu.cn/debian-security'
-	UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu-ports/'
-fi
+# if [[ $DOWNLOAD_MIRROR == "bfsu" ]] ; then
+# 	DEBIAN_MIRROR='mirrors.bfsu.edu.cn/debian'
+# 	DEBIAN_SECURTY='mirrors.bfsu.edu.cn/debian-security'
+# 	UBUNTU_MIRROR='mirrors.bfsu.edu.cn/ubuntu-ports/'
+# fi
 
 if [[ "${ARCH}" == "amd64" ]]; then
 	UBUNTU_MIRROR='archive.ubuntu.com/ubuntu' # ports are only for non-amd64, of course.
